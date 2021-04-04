@@ -1,0 +1,30 @@
+service: ImageUploader
+
+plugins:
+    - serverless-offline
+    - serverless-dotenv-plugin
+package:
+    patterns:
+        - '!node_modules/**'
+
+provider:
+    name: aws
+    runtime: nodejs14.x
+    iamRoleStatements:
+        - Effect: Allow
+          Action:
+              - s3:PutObject
+          Resource: 'arn:aws:s3:::${self:custom.bucketName}/*'
+
+custom:
+    bucketName: ${env:S3_BUCKET_NAME}
+    serverless-offline: ## add this two lines
+        port: 9229 ## bellow "custom:" line
+
+functions:
+    imUpload:
+        handler: src/upload.handler
+        events:
+            - http:
+                  path: /
+                  method: post
