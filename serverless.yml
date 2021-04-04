@@ -28,3 +28,9 @@ functions:
             - http:
                   path: /
                   method: post
+    extractData:
+        handler: src/extractor.handler
+        events:
+            - s3:
+                  bucket: ${self:custom.bucketName}
+                  event: s3:ObjectCreated:*

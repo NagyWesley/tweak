@@ -19,7 +19,5 @@ describe('Upload Image Test', () => {
     })
 })
 
-// accept Images from user
-// upload images to S3
 // extract images data
 // save image data
