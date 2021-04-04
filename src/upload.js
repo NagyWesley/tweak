@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid')
-const { upload } = require('./lib/s3Adapter')
+const { upload } = require('./lib/s3Wrapper')
 const { parse } = require('./lib/parser')
 
 module.exports.handler = async (event) => {
