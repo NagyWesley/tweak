@@ -14,12 +14,13 @@ provider:
         - Effect: Allow
           Action:
               - s3:PutObject
+              - s3:GetObject
           Resource: 'arn:aws:s3:::${self:custom.bucketName}/*'
 
 custom:
     bucketName: ${env:S3_BUCKET_NAME}
-    serverless-offline: ## add this two lines
-        port: 9229 ## bellow "custom:" line
+    serverless-offline:
+        port: 9229
 
 functions:
     imUpload:

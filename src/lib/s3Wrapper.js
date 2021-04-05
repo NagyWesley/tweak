@@ -16,3 +16,7 @@ module.exports.upload = (Key, Body) => {
         })
     })
 }
+
+module.exports.getObject = (params) => {
+    return s3.getObject(params).promise()
+}

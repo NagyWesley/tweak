@@ -18,6 +18,3 @@ describe('Upload Image Test', () => {
         )
     })
 })
-
-// extract images data
-// save image data
